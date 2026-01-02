@@ -9,4 +9,13 @@ public class HelloController {
     public String hello() {
         return "Hello from Spring Boot";
     }
+
+    @GetMapping("/cpu-load")
+    public String cpuLoad() {
+        long start = System.currentTimeMillis();
+        while (System.currentTimeMillis() - start < 60000) { // run for 60 seconds
+             double x = Math.sqrt(Math.random() * Math.random());
+        }
+        return "CPU load completed for 60 seconds";
+    }
 }
